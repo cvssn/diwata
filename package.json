@@ -63,6 +63,7 @@
   "homepage": "https://github.com/cvssn/diwata#readme",
   "dependencies": {
     "@rollup/plugin-graphql": "^2.0.5",
+    "@sourcegraph/code-host-integration": "^0.0.95",
     "@vitejs/plugin-vue": "^6.0.2",
     "@vitejs/plugin-vue2": "^2.3.4",
     "vite": "^7.3.1",
