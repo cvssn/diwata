@@ -1,0 +1,15 @@
+- data = local_assigns.fetch(:data)
+- loading_text = local_assigns.fetch(:loading_text)
+
+-# esse valor é necessário para o seguinte spec e2e
+-# https://gitlab.com/gitlab-org/gitlab/-/blob/master/qa/qa/specs/features/browser_ui/3_create/web_ide/settings_sync_web_ide_spec.rb
+
+#settings-context-hash.hidden{ data: { settings_context_hash: data["settings-context-hash"] } }
+
+-# correção para ios 13+, a altura da página é atualmente menor que
+-# 100vh por causa da presença da barra bottom
+
+#ide.dw-h-full{ data: data }
+    .web-ide-loader.dw-flex.dw-justify-center.dw-items-center.dw-flex-col.dw-h-full.dw-mx-auto.dw-absolute.dw-left-0.dw-top-0.dw-right-0.dw-bottom-0
+        = brand_header_logo
+        %h3.clblack.dw-mt-6= loading_text
