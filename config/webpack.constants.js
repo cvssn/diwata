@@ -32,3 +32,59 @@ function getSidekiqAssetsSourcePath() {
 
     return assetsPath;
 }
+
+function getSidekiqAssetsDestinationPath() {
+    const sidekiqPath = process.env.SIDEKIQ_ASSETS_DEST_PATH;
+
+    if (!sidekiqPath) {
+        return null;
+    }
+
+    console.log(`subpath de destino sidekiq: ${sidekiqPath}`);
+    const destPath = path.join(ROOT_PATH, sidekiqPath);
+    console.log(`path de destino dos assets sidekiq: ${destPath}`);
+
+    return destPath;
+}
+
+const SIDEKIQ_ASSETS_SOURCE = getSidekiqAssetsSourcePath();
+const SIDEKIQ_ASSETS_DEST = getSidekiqAssetsDestinationPath();
+
+const copyFilesPatterns = [
+    ...pdfJsCopyFilesPatterns,
+
+    {
+        from: path.join(ROOT_PATH, 'node_modules', SOURCEGRAPH_PACKAGE, '/'),
+        to: SOURCEGRAPH_OUTPUT_PATH,
+
+        globOptions: {
+            ignore: ['package.json']
+        }
+    },
+
+    {
+        from: path.join(ROOT_PATH, 'node_modules', GITLAB_WEB_IDE_PACKAGE, 'dist', 'public'),
+        to: GITLAB_WEB_IDE_OUTPUT_PATH
+    },
+
+    // adiciona os assets sidekiq
+    ...(SIDEKIQ_ASSETS_SOURCE && SIDEKIQ_ASSETS_DEST ? [
+        {
+            from: SIDEKIQ_ASSETS_SOURCE,
+            to: SIDEKIQ_ASSETS_DEST,
+
+            toType: 'dir'
+        }
+    ] : [])
+];
+
+module.exports = {
+    IS_EE,
+    IS_JH,
+    ROOT_PATH,
+    WEBPACK_OUTPUT_PATH,
+    WEBPACK_PUBLIC_PATH,
+    SOURCEGRAPH_PUBLIC_PATH,
+    GITLAB_WEB_IDE_PUBLIC_PATH,
+    copyFilesPatterns
+};
