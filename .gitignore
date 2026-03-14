@@ -18,7 +18,6 @@ eslint-report.html
 /.diwata_shell_secret
 .idea
 .nova
-/.vscode/*
 /.rbenv-version
 .rbx/
 /.ruby-gemset
