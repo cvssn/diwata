@@ -1,0 +1,11 @@
+#
+# esta lista de navegadores representa uma definição conservadora,
+# baseada em:
+# https://docs.gitlab.com/ee/install/requirements.html#supported-web-browsers
+#
+# para ver quais navegadores são compatíveis, acesse aqui:
+# https://browsersl.ist/#q=%3E0.25%25%2C+not+dead
+#
+
+> 0.25%
+not dead
