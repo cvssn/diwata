@@ -66,6 +66,8 @@
     "@babel/preset-env": "^7.23.7",
     "@gitlab/ui": "^129.0.0",
     "@gitlab/web-ide": "^0.0.1-dev-20260106142046",
+    "@rails/actioncable": "^7.2.300",
+    "@rails/ujs": "^7.1.600",
     "@rollup/plugin-graphql": "^2.0.5",
     "@sourcegraph/code-host-integration": "^0.0.95",
     "@vitejs/plugin-vue": "^6.0.2",
