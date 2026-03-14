@@ -1,0 +1,35 @@
+// boas vindas ao css do diwata
+//
+// se precisar adicionar ou modificar um componente de interface do
+// usuário comum a várias páginas, como uma tabela ou tipografia, faça
+// as alterações no diretório `framework/`. se precisar adicionar um
+// estilo exclusivo que afete apenas uma página, use o diretório `pages/`
+@import '@gitlab/at.js/dist/css/jquery.atwho';
+@import 'dropzone/dist/basic';
+
+// definições de propriedade customizada de projeto específico
+@import 'root';
+
+// framework ui do diwata
+@import 'framework';
+
+// estilizações específicas de página (issues, projetos, etc.)
+@import 'page_specific_files';
+
+// estilizações específicas de componente (será movido para diwata-ui)
+@import 'components/index';
+
+// estilizações específicas de vendors
+@import 'vendors/index';
+
+// estilizações para behaviors javascript
+@import 'behaviors';
+
+// estilizações apenas de ee
+@import 'application_ee';
+
+// estilizações apenas de jh
+@import 'application_jh';
+
+// estilizações de print
+@import 'print';
